@@ -1,0 +1,144 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container-fluid" style="position: relative;">
+        <div class="toast1">
+
+            <div class="alert alert-success">
+                <strong>Success!</strong> You'll receive an email shortly
+            </div>
+        </div>
+        <div class="for-dark">
+
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+
+                <div class="row main">
+                    <div class="col-md-12 for-logo">
+                        <div>Screen Secure</div>
+                        <div>Screening and Background check</div>
+                    </div>
+                    <div class="col-md-12">
+                        <h5 class="border-bottom">Candidate</h5>
+                    </div>
+                    <div class="col-md-12 mb-3" style="display: flex;">
+                        <div class="mr-2" style="position: relative;width: 100%">
+                            <input id="cfname" type="text" placeholder="First Name">
+                            <i class="fa fa-user"></i>
+                        </div>
+
+                        <div style="position: relative;width: 100%">
+                            <input id="clname" class="" type="text" placeholder="Last Name">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div style="position: relative;width: 100%;">
+                            <input id="cemail" type="email" placeholder="Email">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h5 class="border-bottom">Reference</h5>
+                    </div>
+                    <div class="col-md-12 mb-3" style="display: flex;">
+                        <div class="mr-2" style="position: relative;width: 100%">
+                            <input id="rfname" type="text" placeholder="First Name">
+                            <i class="fa fa-user"></i>
+                        </div>
+
+                        <div style="position: relative;width: 100%">
+                            <input id="rlname" class="" type="text" placeholder="Last Name">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3" style="display: flex;">
+                        <div class="mr-2" style="position: relative;width: 50%;">
+                            <input id="remail" type="email" placeholder="Email">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div style="position: relative;width: 50%;">
+                            <input type="text" id="rphone" placeholder="Phone Number" style="padding-left: 23px;">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12 for-controls">
+                        <button id="myBtn" class="form-control btn">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#myBtn").click(function () {
+                var formdata = {
+                    referenceFirstName: $("#rfname").val(),
+                    referenceLastName: $("#rlname").val(),
+                    referenceEmail: $("#remail").val(),
+                    referencePhone: $("#rphone").val(),
+                    candidateFirstName: $("#cfname").val(),
+                    candidateLastName: $("#clname").val(),
+                    candidateEmail: $("#cemail").val(),
+                };
+                console.log(formdata);
+
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                   
+                    "url": "https://api.mlab.com/api/1/databases/iottdripp/collections/formpost?apiKey=8pamx7aYbf4V4_6TlutSwH9kvAFRqE2p",
+				  "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json",
+                    },
+                    "processData": false,
+                    "data": JSON.stringify(formdata)
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+
+                $('.toast1').show();
+                $("#rfname").val('');
+                $("#rlname").val('');
+                $("#remail").val('');
+                $("#rphone").val('');
+                $("#cfname").val('');
+                $("#clname").val('');
+                $("#cemail").val('');
+            });
+            setInterval(function () { $('.toast1').hide(); }, 5000)
+        });
+    </script>
+
+</body>
+
+</html>

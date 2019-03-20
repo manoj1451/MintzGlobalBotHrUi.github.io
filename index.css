@@ -1,0 +1,109 @@
+.main{
+    width:570px;
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.container-fluid{
+    background: url('https://mintzglobalscreening.com/wp-content/uploads/2018/12/img_2-empreintes-digitales.jpg');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.for-dark{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5)
+}
+.for-controls button{
+    background: #FF8800;
+    color:white;
+}
+
+.for-controls button:hover,.for-controls button:focus{
+    background: #FF8800;
+    color:white;
+    outline: unset;
+    box-shadow: unset;
+    border-color: unset;
+}
+
+.for-logo{
+    min-width: 120px;
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.for-logo div:first-child{
+    font-size: 25px;
+    font-weight: bold;
+    color: #FF8800;
+}
+.for-logo div:nth-child(2){
+    font-size: 13px;
+    color:white;
+    font-weight: bold;
+}
+input{
+    padding: 5px;
+    padding-left: 30px;
+    border-radius: 6px;
+    /* box-shadow: unset; */
+    border: unset;
+    width:100%;
+}
+input:focus{
+    outline: none;
+    border-color: unset;
+    box-shadow: unset;
+}
+.fa-user,.fa-mobile{
+    position: absolute;
+    top: 11px;
+    font-size: 14px !important;
+    left: 10px;
+    color: gray
+}
+.fa-envelope{
+    position: absolute;
+    top: 11px;
+    font-size: 13px !important;
+    left: 10px;
+    color: gray
+}
+
+.fa{
+    font-size: 13px;
+}
+.border-bottom{
+    padding-bottom: 8px;
+    width: 100px;
+    border-bottom: 2px solid #FF8800!important;
+    color:white;
+}
+button:focus{
+    border-radius:6px;
+    border:none;
+}
+button:focus{
+    outline:none;
+}
+.toast1{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.alert{
+    z-index: 999;
+}
+.toast1{
+    display: none;
+}
+.alert-success{
+
+}
